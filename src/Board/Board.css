@@ -1,0 +1,11 @@
+.boards {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Board-option {
+    width: 50px;
+    height: 60px;
+    border: 3px solid #6495ee;
+}
