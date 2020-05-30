@@ -10,14 +10,32 @@ import './Board.css';
  */
 
 class Board extends Component {
+
+	constructor(props) {
+		super(props);
+		this.state= {
+			chosenOption: [false,false,false]
+			
+		}
+		
+	}
+
+	chooseBoard(e){
+		const options = [false,false,false];
+		options[e.target.id]=true;
+		this.setState({
+			chosenOption: options
+		});
+	}
+
 	render() {
 		return (
 			<div className="Board">
 				<h1>Choose board:</h1>
-				<div className="boards">
-					<div className="Board-option">1</div>
-					<div className="Board-option">2</div>
-					<div className="Board-option">3</div>
+				<div className="boards" >
+					<div className={this.state.chosenOption[0] ? 'Board-option-red' : 'Board-option'} id={0} onClick={this.chooseBoard.bind(this)}>1</div>
+					<div className={this.state.chosenOption[1] ? 'Board-option-red' : 'Board-option'} id={1} onClick={this.chooseBoard.bind(this)}>2</div>
+					<div className={this.state.chosenOption[2] ? 'Board-option-red' : 'Board-option'} id={2} onClick={this.chooseBoard.bind(this)}>3</div>
 				</div>
 			</div>
 		);
